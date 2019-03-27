@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eleven.mapper.PicMapper">
+	
+	<resultMap id="BaseResultMap" type="com.eleven.pojo.Picture">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="name" jdbcType="VARCHAR"
+			property="name" />
+	</resultMap>
+	
+	
+	<select id="selectPic"
+		parameterType="com.eleven.pojo.Picture" resultMap="BaseResultMap">
+		select * from picture
+	</select>
+	
+	<insert id="add" keyProperty="id" useGeneratedKeys="true"
+		parameterType="com.eleven.pojo.Picture">
+		insert into picture ( name ) values (#{name,jdbcType=VARCHAR})
+	</insert>
+	
+</mapper>
